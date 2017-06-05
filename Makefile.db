@@ -1,0 +1,11 @@
+all: DB.o testdb.o
+	g++ -o testdb DB.o testdb.o -lmysqlclient
+
+DB.o:
+	g++ -I include -c  src/DB.cpp
+
+testdb.o:
+	 g++ -I include -c  src/testdb.cpp
+
+clean:
+	rm *.o testdb
